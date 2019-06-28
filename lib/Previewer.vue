@@ -89,6 +89,7 @@ export default {
 
     $addListeners () {
       this.$photoswipe.listen('close', () => {
+        const hideAnimationDuration = this.$photoswipe.options.hideAnimationDuration
         setTimeout(() => {
           const exhibitions = document.querySelectorAll('.v-previewer-exhibition')
 
@@ -100,7 +101,7 @@ export default {
           window.$previewer = null
           this.$photoswipe.destroy()
           this.$photoswipe = null
-        }, 300)
+        }, hideAnimationDuration)
       })
     }
   }
