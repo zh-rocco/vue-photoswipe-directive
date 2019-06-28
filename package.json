@@ -1,15 +1,40 @@
 {
   "name": "vue-photoswipe-directive",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "An image preview directive for vue powered by PhotoSwipe.",
+  "main": "dist/index.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --dest docs",
+    "build:lib": "vue-cli-service build --mode library --target lib --name PhotoSwipeDirective --filename index --formats umd-min --dest dist ./lib/directive.js",
+    "deploy": "npm run build:lib && npm publish",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {
-    "photoswipe": "^4.1.3",
-    "vue": "^2.6.10"
+  "files": [
+    "README.md",
+    "lib",
+    "dist/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zh-rocco/vue-photoswipe-directive.git"
   },
+  "keywords": [
+    "photoswipe",
+    "image-preview",
+    "vue-directive",
+    "directive",
+    "vue"
+  ],
+  "author": {
+    "name": "Rocco Mormont",
+    "email": "rocco.mormont@gmail.com",
+    "url": "https://zh-rocco.github.io/"
+  },
+  "bugs": {
+    "url": "https://github.com/zh-rocco/vue-photoswipe-directive/issues"
+  },
+  "dependencies": {},
   "devDependencies": {
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
@@ -19,6 +44,8 @@
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "photoswipe": "^4.1.3",
+    "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {

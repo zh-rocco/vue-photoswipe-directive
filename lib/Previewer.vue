@@ -59,11 +59,6 @@
 </template>
 
 <script>
-import PhotoSwipe from 'photoswipe/dist/photoswipe'
-import UI from 'photoswipe/dist/photoswipe-ui-default'
-import 'photoswipe/dist/photoswipe.css'
-import 'photoswipe/dist/default-skin/default-skin.css'
-
 const DEFAULT_OPTIONS = {
   // shareEl: false, // 隐藏分享按钮
   // fullscreenEl: false, // 隐藏全屏按钮
@@ -82,7 +77,7 @@ export default {
   methods: {
     show (index, items, opts) {
       const options = { index, ...DEFAULT_OPTIONS, ...opts }
-      this.$photoswipe = new PhotoSwipe(this.$el, UI, items, options)
+      this.$photoswipe = new window.PhotoSwipe(this.$el, window.PhotoSwipeUI_Default, items, options)
       this.$addListeners()
       this.$photoswipe.init()
     },

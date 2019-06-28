@@ -1,24 +1,24 @@
 <template>
   <div id="app">
-    <img v-previewer:a src="./images/01.jpg">
-    <img v-previewer:a src="./images/02.jpg">
-    <img v-previewer:b src="./images/03.jpg">
-    <img v-previewer:a src="./images/04.png">
-    <img v-previewer src="./images/05.png">
-    <img v-previewer src="./images/06.png">
-    <img v-previewer src="./images/07.png">
-    <img v-previewer src="./images/08.png">
-    <img v-previewer:b src="./images/09.jpg">
+    <img v-preview:scope-a src="./images/01.jpg">
+    <img v-preview:scope-a src="./images/02.jpg">
+    <img v-preview:scope-b src="./images/03.jpg">
+    <img v-preview:scope-a src="./images/04.png">
+    <img v-preview src="./images/05.png">
+    <img v-preview src="./images/06.png">
+    <img v-preview src="./images/07.png">
+    <img v-preview src="./images/08.png">
+    <img v-preview:scope-b src="./images/09.jpg">
   </div>
 </template>
 
 <script>
-import { createPreviewerDirective } from '../lib/directive'
+import { createPreviewDirective } from '../lib/directive'
 
 export default {
   name: 'app',
   directives: {
-    previewer: createPreviewerDirective({
+    preview: createPreviewDirective({
       shareEl: false, // 隐藏分享按钮
       fullscreenEl: false, // 隐藏全屏按钮
       history: false, // 禁用 history 模式
