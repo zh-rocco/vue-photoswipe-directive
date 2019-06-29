@@ -205,8 +205,8 @@ yarn build:lib
 
 ## Todo
 
-- [] Expand the advanced API. 
-- [] Add test files.
+- [ ] Expand the advanced API. 
+- [ ] Add test files.
 
 ## License
 
