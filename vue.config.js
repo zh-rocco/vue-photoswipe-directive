@@ -8,9 +8,7 @@ module.exports = {
   css: { extract: false },
 
   chainWebpack (config) {
+    config.externals({ vue: 'Vue' })
     config.devtool('source-map')
-    if (isLibraryMode) {
-      config.output.filename('index.js')
-    }
   }
 }

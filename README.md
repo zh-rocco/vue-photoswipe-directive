@@ -18,22 +18,79 @@
 ## Requirements
 
 - [`Vue.js 2.x`](https://cn.vuejs.org/)
-- `IE9 +`
+- `Promise`, `Symbol`
 
 ## Advantages
 
 - Simple API.
-- Small bundle size: ≈6KB (≈2.5KB gzipped, without [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)).
+- Small bundle size: ≈9KB, ≈3KB gzipped (without PhotoSwipe and Promise/Symbol polyfill).
 
 ## Installation
 
 ```bash
+yarn add photoswipe
 yarn add vue-photoswipe-directive
 ```
 
 ## Usage
 
-### Include PhotoSwipe dependencies
+### Registration
+
+#### Base
+
+```js
+import createPreviewDirective from "vue-photoswipe-directive";
+
+export default {
+  directives: {
+    preview: createPreviewDirective()
+  }
+};
+```
+
+#### Options
+
+```js
+import createPreviewDirective from "vue-photoswipe-directive";
+
+export default {
+  directives: {
+    preview: createPreviewDirective({
+      shareEl: false, // 隐藏分享按钮
+      fullscreenEl: false, // 隐藏全屏按钮
+      history: false, // 禁用 history 模式
+      tapToClose: false, // 禁用点击空白区退出
+      escKey: false, // 禁用 ESC 键退出
+      clickToCloseNonZoomable: false, // 禁止图像小于视口大小时，鼠标点击图像会关闭图库
+      bgOpacity: 0.8, // 背景透明度
+      allowPanToNext: false, // 禁止图片放大时滑动到上/下一页
+      pinchToClose: false // 禁用双指捏合关闭
+    })
+  }
+};
+```
+
+### Vue Directive
+
+#### Base
+
+```html
+<img v-preview src="./images/01.jpg" />
+```
+
+#### Scope
+
+```html
+<img v-preview:scope-a src="./images/01.jpg" />
+<img v-preview:scope-a src="./images/02.jpg" />
+<img v-preview:scope-a src="./images/03.jpg" />
+```
+
+## Example
+
+### Include PhotoSwipe dependencies by external links
+
+`index.html`
 
 ```html
 <!-- Core CSS file -->
@@ -52,7 +109,7 @@ yarn add vue-photoswipe-directive
 <script src="https://unpkg.com/photoswipe/dist/photoswipe-ui-default.min.js"></script>
 ```
 
-### Explore with funny
+`*.vue`
 
 ```vue
 <template>
@@ -70,7 +127,7 @@ yarn add vue-photoswipe-directive
 </template>
 
 <script>
-import { createPreviewDirective } from "vue-photoswipe-directive";
+import createPreviewDirective from "vue-photoswipe-directive";
 
 export default {
   directives: {
@@ -90,6 +147,50 @@ export default {
 </script>
 ```
 
+### Include PhotoSwipe dependencies by modules
+
+`*.vue`
+
+```vue
+<template>
+  <div id="app">
+    <img v-preview:scope-a src="./images/01.jpg" />
+    <img v-preview:scope-a src="./images/02.jpg" />
+    <img v-preview:scope-b src="./images/03.jpg" />
+    <img v-preview:scope-a src="./images/04.png" />
+    <img v-preview src="./images/05.png" />
+    <img v-preview src="./images/06.png" />
+    <img v-preview src="./images/07.png" />
+    <img v-preview src="./images/08.png" />
+    <img v-preview:scope-b src="./images/09.jpg" />
+  </div>
+</template>
+
+<script>
+import PhotoSwipe from 'photoswipe/dist/photoswipe'
+import PhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default'
+import 'photoswipe/dist/photoswipe.css'
+import 'photoswipe/dist/default-skin/default-skin.css'
+import createPreviewDirective from "vue-photoswipe-directive";
+
+export default {
+  directives: {
+    preview: createPreviewDirective({
+      shareEl: false, // 隐藏分享按钮
+      fullscreenEl: false, // 隐藏全屏按钮
+      history: false, // 禁用 history 模式
+      tapToClose: false, // 禁用点击空白区退出
+      escKey: false, // 禁用 ESC 键退出
+      clickToCloseNonZoomable: false, // 禁止图像小于视口大小时，鼠标点击图像会关闭图库
+      bgOpacity: 0.8, // 背景透明度
+      allowPanToNext: false, // 禁止图片放大时滑动到上/下一页
+      pinchToClose: false // 禁用双指捏合关闭
+    }, PhotoSwipe, PhotoSwipeUI)
+  }
+};
+</script>
+```
+
 ## Development
 
 ```bash
@@ -101,6 +202,11 @@ yarn serve
 ```bash
 yarn build:lib
 ```
+
+## Todo
+
+- [] Expand the advanced API. 
+- [] Add test files.
 
 ## License
 

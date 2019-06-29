@@ -5,8 +5,8 @@
   "main": "dist/index.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest docs",
-    "build:lib": "vue-cli-service build --mode library --target lib --name PhotoSwipeDirective --filename index --formats umd-min --dest dist ./lib/directive.js",
+    "build": "vue-cli-service build --dest docs && cp -p README.md docs",
+    "build:lib": "cross-env BUILD_TARGET=library vue-cli-service build --mode library --target lib --name PhotoSwipeDirective --filename index --formats umd-min --dest dist ./lib/directive.js",
     "deploy": "npm run build:lib && npm publish",
     "lint": "vue-cli-service lint"
   },
@@ -36,10 +36,13 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "core-js": "^2.6.5",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.0.4",

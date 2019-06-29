@@ -13,21 +13,17 @@
 </template>
 
 <script>
-import { createPreviewDirective } from '../lib/directive'
+import createPreviewDirective from '../lib/directive'
 
 export default {
   name: 'app',
   directives: {
     preview: createPreviewDirective({
       shareEl: false, // 隐藏分享按钮
-      fullscreenEl: false, // 隐藏全屏按钮
       history: false, // 禁用 history 模式
-      tapToClose: false, // 禁用点击空白区退出
-      escKey: false, // 禁用 ESC 键退出
       clickToCloseNonZoomable: false, // 禁止图像小于视口大小时，鼠标点击图像会关闭图库
       bgOpacity: 0.8, // 背景透明度
-      allowPanToNext: false, // 禁止图片放大时滑动到上/下一页
-      pinchToClose: false // 禁用双指捏合关闭
+      allowPanToNext: false // 禁止图片放大时滑动到上/下一页
     })
   }
 }

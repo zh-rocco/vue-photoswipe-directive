@@ -59,45 +59,36 @@
 </template>
 
 <script>
-const DEFAULT_OPTIONS = {
-  // shareEl: false, // 隐藏分享按钮
-  // fullscreenEl: false, // 隐藏全屏按钮
-  // history: false, // 禁用 history 模式
-  // tapToClose: false, // 禁用点击空白区退出
-  // escKey: false, // 禁用 ESC 键退出
-  // clickToCloseNonZoomable: false, // 禁止图像小于视口大小时，鼠标点击图像会关闭图库
-  // bgOpacity: 0.9, // 背景透明度
-  // allowPanToNext: false, // 禁止图片放大时滑动到上/下一页
-  // pinchToClose: false // 禁用双指捏合关闭
-}
+const DEFAULT_OPTIONS = {}
 
 export default {
   name: 'Previewer',
 
   methods: {
-    show (index, items, opts) {
+    show (PhotoSwipe, PhotoSwipeUI, index, items, opts) {
       const options = { index, ...DEFAULT_OPTIONS, ...opts }
-      this.$photoswipe = new window.PhotoSwipe(this.$el, window.PhotoSwipeUI_Default, items, options)
-      this.$addListeners()
+      this.$photoswipe = new PhotoSwipe(this.$el, PhotoSwipeUI, items, options)
+      this.$_addListeners()
       this.$photoswipe.init()
     },
 
-    $addListeners () {
-      this.$photoswipe.listen('close', () => {
-        const hideAnimationDuration = this.$photoswipe.options.hideAnimationDuration
-        setTimeout(() => {
-          const exhibitions = document.querySelectorAll('.v-previewer-exhibition')
+    $_addListeners () {
+      this.$photoswipe.listen('close', this.$_destroy)
+    },
 
-          for (const exhibition of exhibitions) {
-            document.body.removeChild(exhibition)
-          }
+    $_destroy () {
+      const hideAnimationDuration = this.$photoswipe.options.hideAnimationDuration + 50
+      setTimeout(() => {
+        const exhibitions = document.querySelectorAll('.v-photoswipe-exhibition')
 
-          window.$previewer.$destroy()
-          window.$previewer = null
-          this.$photoswipe.destroy()
-          this.$photoswipe = null
-        }, hideAnimationDuration)
-      })
+        for (const exhibition of exhibitions) {
+          document.body.removeChild(exhibition)
+        }
+
+        this.$photoswipe = null
+        window.$photoswipe.$destroy()
+        window.$photoswipe = null
+      }, hideAnimationDuration)
     }
   }
 }
