@@ -10,7 +10,6 @@
 [![Github tag](https://img.shields.io/github/tag/zh-rocco/vue-photoswipe-directive.svg?maxAge=3600)](https://github.com/zh-rocco/vue-photoswipe-directive/)
 [![Build Status](https://travis-ci.org/zh-rocco/vue-photoswipe-directive.svg?branch=master)](https://travis-ci.org/zh-rocco/vue-photoswipe-directive)
 [![GitHub license](https://img.shields.io/github/license/zh-rocco/vue-photoswipe-directive.svg)](https://github.com/zh-rocco/vue-photoswipe-directive/blob/master/LICENSE)
-[![Greenkeeper badge](https://badges.greenkeeper.io/zh-rocco/vue-photoswipe-directive.svg)](https://greenkeeper.io/)
 
 ## Demo
 
