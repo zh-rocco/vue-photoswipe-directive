@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <img v-preview:scope-a src="./images/01.jpg">
-    <img v-preview:scope-a src="./images/02.jpg">
-    <img v-preview:scope-b src="./images/03.jpg">
-    <img v-preview:scope-a src="./images/04.png">
-    <img v-preview src="./images/05.png">
-    <img v-preview src="./images/06.png">
-    <img v-preview src="./images/07.png">
-    <img v-preview src="./images/08.png">
-    <img v-preview:scope-b src="./images/09.jpg">
+    <img v-preview:scope-a src="./images/01.jpg" alt="image 01">
+    <img v-preview:scope-a src="./images/02.jpg" alt="image 02">
+    <img v-preview:scope-b src="./images/03.jpg" alt="image 03">
+    <img v-preview:scope-a src="./images/04.png" alt="image 04">
+    <img v-preview src="./images/05.png" alt="image 05">
+    <img v-preview src="./images/06.png" alt="image 06">
+    <img v-preview src="./images/07.png" alt="image 07">
+    <img v-preview src="./images/08.png" alt="image 08">
+    <img v-preview:scope-b src="./images/09.jpg" alt="image 09">
   </div>
 </template>
 
