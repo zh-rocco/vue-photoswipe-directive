@@ -12,6 +12,7 @@ script:
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 
 deploy:
   provider: pages
