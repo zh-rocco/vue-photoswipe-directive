@@ -67,17 +67,17 @@ export default {
   methods: {
     show (PhotoSwipe, PhotoSwipeUI, index, items, opts) {
       const options = { index, ...DEFAULT_OPTIONS, ...opts }
-      this.$photoswipe = new PhotoSwipe(this.$el, PhotoSwipeUI, items, options)
+      this.$previewer = new PhotoSwipe(this.$el, PhotoSwipeUI, items, options)
       this.$_addListeners()
-      this.$photoswipe.init()
+      this.$previewer.init()
     },
 
     $_addListeners () {
-      this.$photoswipe.listen('close', this.$_destroy)
+      this.$previewer.listen('close', this.$_destroy)
     },
 
     $_destroy () {
-      const hideAnimationDuration = this.$photoswipe.options.hideAnimationDuration + 50
+      const hideAnimationDuration = this.$previewer.options.hideAnimationDuration + 50
       setTimeout(() => {
         const exhibitions = document.querySelectorAll('.v-photoswipe-exhibition')
 
@@ -85,9 +85,9 @@ export default {
           document.body.removeChild(exhibition)
         }
 
-        this.$photoswipe = null
-        window.$photoswipe.$destroy()
-        window.$photoswipe = null
+        this.$previewer = null
+        window.$previewer.$destroy()
+        window.$previewer = null
       }, hideAnimationDuration)
     }
   }
