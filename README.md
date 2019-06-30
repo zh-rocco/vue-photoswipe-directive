@@ -13,12 +13,14 @@
 
 ## Demo
 
+![DEMO](https://repository-images.githubusercontent.com/194109246/dc703a00-9b42-11e9-920a-e84b3b3b7ac3)
+
 [Try it out](https://zh-rocco.github.io/vue-photoswipe-directive/)
 
 ## Requirements
 
 - [`Vue.js 2.x`](https://cn.vuejs.org/)
-- [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
+- [`PhotoSwipe`](https://github.com/dimsemenov/PhotoSwipe)
 
 ## Advantages
 
