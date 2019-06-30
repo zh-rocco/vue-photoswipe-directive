@@ -66,6 +66,9 @@ export default {
 
   methods: {
     show (PhotoSwipe, PhotoSwipeUI, index, items, opts) {
+      if (!PhotoSwipe || !PhotoSwipeUI) {
+        throw new Error('Please install photoswipe and include.')
+      }
       const options = { index, ...DEFAULT_OPTIONS, ...opts }
       this.$previewer = new PhotoSwipe(this.$el, PhotoSwipeUI, items, options)
       this.$_addListeners()
