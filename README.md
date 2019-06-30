@@ -18,12 +18,12 @@
 ## Requirements
 
 - [`Vue.js 2.x`](https://cn.vuejs.org/)
-- `Promise`, `Symbol`
+- [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
 
 ## Advantages
 
 - Simple API.
-- Small bundle size: ≈9KB, ≈3KB gzipped (without PhotoSwipe and Promise/Symbol polyfill).
+- Small bundle size: ≈7KB (≈3KB gzipped, without PhotoSwipe).
 
 ## Installation
 
