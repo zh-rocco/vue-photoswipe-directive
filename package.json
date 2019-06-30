@@ -1,13 +1,13 @@
 {
   "name": "vue-photoswipe-directive",
   "version": "0.0.1",
-  "description": "An image preview directive for vue powered by PhotoSwipe.",
+  "description": "An image previewer for vue, powered by PhotoSwipe.",
   "main": "dist/index.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --dest docs && cp -p README.md docs",
-    "bundle": "vue-cli-service build --mode library --target lib --name PhotoSwipeDirective --filename index --formats umd-min --dest dist ./lib/directive.js",
-    "deploy": "npm run bundle && npm publish",
+    "build:lib": "vue-cli-service build --mode library --target lib --name PhotoSwipeDirective --filename index --formats umd-min --dest dist ./lib/directive.js",
+    "deploy": "npm run build:lib && npm publish",
     "lint": "vue-cli-service lint"
   },
   "files": [
@@ -21,9 +21,7 @@
   },
   "keywords": [
     "photoswipe",
-    "image-preview",
-    "vue-directive",
-    "directive",
+    "preview",
     "vue"
   ],
   "author": {

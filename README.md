@@ -1,6 +1,6 @@
 # vue-photoswipe-directive
 
-> An image preview directive for vue powered by [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe).
+> An image previewer for vue, powered by [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe).
 
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
 [![downloads](https://img.shields.io/npm/dt/vue-photoswipe-directive.svg)](http://npm-stats.com/~packages/vue-photoswipe-directive)
