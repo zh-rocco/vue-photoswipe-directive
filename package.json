@@ -32,6 +32,7 @@
   "bugs": {
     "url": "https://github.com/zh-rocco/vue-photoswipe-directive/issues"
   },
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",

@@ -57,17 +57,7 @@ import createPreviewDirective from "vue-photoswipe-directive";
 
 export default {
   directives: {
-    preview: createPreviewDirective({
-      shareEl: false, // 隐藏分享按钮
-      fullscreenEl: false, // 隐藏全屏按钮
-      history: false, // 禁用 history 模式
-      tapToClose: false, // 禁用点击空白区退出
-      escKey: false, // 禁用 ESC 键退出
-      clickToCloseNonZoomable: false, // 禁止图像小于视口大小时，鼠标点击图像会关闭图库
-      bgOpacity: 0.8, // 背景透明度
-      allowPanToNext: false, // 禁止图片放大时滑动到上/下一页
-      pinchToClose: false // 禁用双指捏合关闭
-    })
+    preview: createPreviewDirective(photoswipeOptions)
   }
 };
 ```
@@ -77,15 +67,15 @@ export default {
 #### Base
 
 ```html
-<img v-preview src="./images/01.jpg" />
+<img v-preview src="./images/01.jpg" alt="image 01" />
 ```
 
 #### Scope
 
 ```html
-<img v-preview:scope-a src="./images/01.jpg" />
-<img v-preview:scope-a src="./images/02.jpg" />
-<img v-preview:scope-a src="./images/03.jpg" />
+<img v-preview:scope-a src="./images/01.jpg" alt="image 01" />
+<img v-preview:scope-a src="./images/02.jpg" alt="image 02" />
+<img v-preview src="./images/03.jpg" alt="image 03" />
 ```
 
 ## Example
@@ -116,15 +106,15 @@ export default {
 ```vue
 <template>
   <div id="app">
-    <img v-preview:scope-a src="./images/01.jpg" alt="image 01">
-    <img v-preview:scope-a src="./images/02.jpg" alt="image 02">
-    <img v-preview:scope-b src="./images/03.jpg" alt="image 03">
-    <img v-preview:scope-a src="./images/04.png" alt="image 04">
-    <img v-preview src="./images/05.png" alt="image 05">
-    <img v-preview src="./images/06.png" alt="image 06">
-    <img v-preview src="./images/07.png" alt="image 07">
-    <img v-preview src="./images/08.png" alt="image 08">
-    <img v-preview:scope-b src="./images/09.jpg" alt="image 09">
+    <img v-preview:scope-a src="./images/01.jpg" alt="image 01" />
+    <img v-preview:scope-a src="./images/02.jpg" alt="image 02" />
+    <img v-preview:scope-b src="./images/03.jpg" alt="image 03" />
+    <img v-preview:scope-a src="./images/04.png" alt="image 04" />
+    <img v-preview src="./images/05.png" alt="image 05" />
+    <img v-preview src="./images/06.png" alt="image 06" />
+    <img v-preview src="./images/07.png" alt="image 07" />
+    <img v-preview src="./images/08.png" alt="image 08" />
+    <img v-preview:scope-b src="./images/09.jpg" alt="image 09" />
   </div>
 </template>
 
@@ -133,17 +123,7 @@ import createPreviewDirective from "vue-photoswipe-directive";
 
 export default {
   directives: {
-    preview: createPreviewDirective({
-      shareEl: false, // 隐藏分享按钮
-      fullscreenEl: false, // 隐藏全屏按钮
-      history: false, // 禁用 history 模式
-      tapToClose: false, // 禁用点击空白区退出
-      escKey: false, // 禁用 ESC 键退出
-      clickToCloseNonZoomable: false, // 禁止图像小于视口大小时，鼠标点击图像会关闭图库
-      bgOpacity: 0.8, // 背景透明度
-      allowPanToNext: false, // 禁止图片放大时滑动到上/下一页
-      pinchToClose: false // 禁用双指捏合关闭
-    })
+    preview: createPreviewDirective()
   }
 };
 </script>
@@ -156,15 +136,15 @@ export default {
 ```vue
 <template>
   <div id="app">
-    <img v-preview:scope-a src="./images/01.jpg" alt="image 01">
-    <img v-preview:scope-a src="./images/02.jpg" alt="image 02">
-    <img v-preview:scope-b src="./images/03.jpg" alt="image 03">
-    <img v-preview:scope-a src="./images/04.png" alt="image 04">
-    <img v-preview src="./images/05.png" alt="image 05">
-    <img v-preview src="./images/06.png" alt="image 06">
-    <img v-preview src="./images/07.png" alt="image 07">
-    <img v-preview src="./images/08.png" alt="image 08">
-    <img v-preview:scope-b src="./images/09.jpg" alt="image 09">
+    <img v-preview:scope-a src="./images/01.jpg" alt="image 01" />
+    <img v-preview:scope-a src="./images/02.jpg" alt="image 02" />
+    <img v-preview:scope-b src="./images/03.jpg" alt="image 03" />
+    <img v-preview:scope-a src="./images/04.png" alt="image 04" />
+    <img v-preview src="./images/05.png" alt="image 05" />
+    <img v-preview src="./images/06.png" alt="image 06" />
+    <img v-preview src="./images/07.png" alt="image 07" />
+    <img v-preview src="./images/08.png" alt="image 08" />
+    <img v-preview:scope-b src="./images/09.jpg" alt="image 09" />
   </div>
 </template>
 
@@ -177,17 +157,7 @@ import createPreviewDirective from "vue-photoswipe-directive";
 
 export default {
   directives: {
-    preview: createPreviewDirective({
-      shareEl: false, // 隐藏分享按钮
-      fullscreenEl: false, // 隐藏全屏按钮
-      history: false, // 禁用 history 模式
-      tapToClose: false, // 禁用点击空白区退出
-      escKey: false, // 禁用 ESC 键退出
-      clickToCloseNonZoomable: false, // 禁止图像小于视口大小时，鼠标点击图像会关闭图库
-      bgOpacity: 0.8, // 背景透明度
-      allowPanToNext: false, // 禁止图片放大时滑动到上/下一页
-      pinchToClose: false // 禁用双指捏合关闭
-    }, PhotoSwipe, PhotoSwipeUI)
+    preview: createPreviewDirective(null, PhotoSwipe, PhotoSwipeUI)
   }
 };
 </script>
