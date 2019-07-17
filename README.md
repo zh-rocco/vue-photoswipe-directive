@@ -25,7 +25,7 @@
 ## Advantages
 
 - Simple API.
-- Small bundle size: ≈7KB (≈3KB gzipped, without PhotoSwipe).
+- Small bundle size: 15.3KB (5.6KB gzipped, without PhotoSwipe & Promise polyfill).
 
 ## Installation
 
@@ -67,15 +67,33 @@ export default {
 #### Base
 
 ```html
-<img v-preview src="./images/01.jpg" alt="image 01" />
+<img v-preview src="path/to/image.jpg" alt="image" />
 ```
 
 #### Scope
 
 ```html
-<img v-preview:scope-a src="./images/01.jpg" alt="image 01" />
-<img v-preview:scope-a src="./images/02.jpg" alt="image 02" />
-<img v-preview src="./images/03.jpg" alt="image 03" />
+<img v-preview:scope-a src="path/to/images/01.jpg" alt="image 01" />
+<img v-preview:scope-a src="path/to/images/02.jpg" alt="image 02" />
+<img v-preview src="path/to/images/03.jpg" alt="image 03" />
+```
+
+#### Lazy Load
+
+Support [vue-lazyload](https://github.com/hilongjw/vue-lazyload)
+
+```html
+<div v-lazy-container="{ selector: 'img' }">
+  <img v-preview:scope-a data-src="path/to/images/01.jpg" alt="image 01" />
+  <img v-preview:scope-a data-src="path/to/images/02.jpg" alt="image 02" />
+  <img v-preview data-src="path/to/images/03.jpg" alt="image 03" />
+</div>
+```
+
+#### Origin Image
+
+```html
+<img v-preview src="path/to/image.jpg" data-origin="path/to/origin-image.jpg" alt="image" />
 ```
 
 ## Example
@@ -106,15 +124,9 @@ export default {
 ```vue
 <template>
   <div id="app">
-    <img v-preview:scope-a src="./images/01.jpg" alt="image 01" />
-    <img v-preview:scope-a src="./images/02.jpg" alt="image 02" />
-    <img v-preview:scope-b src="./images/03.jpg" alt="image 03" />
-    <img v-preview:scope-a src="./images/04.png" alt="image 04" />
-    <img v-preview src="./images/05.png" alt="image 05" />
-    <img v-preview src="./images/06.png" alt="image 06" />
-    <img v-preview src="./images/07.png" alt="image 07" />
-    <img v-preview src="./images/08.png" alt="image 08" />
-    <img v-preview:scope-b src="./images/09.jpg" alt="image 09" />
+    <img v-preview:scope-a src="path/to/images/01.jpg" alt="image 01" />
+    <img v-preview:scope-a src="path/to/images/02.jpg" alt="image 02" />
+    <img v-preview src="path/to/images/03.jpg" alt="image 03" />
   </div>
 </template>
 
@@ -136,15 +148,9 @@ export default {
 ```vue
 <template>
   <div id="app">
-    <img v-preview:scope-a src="./images/01.jpg" alt="image 01" />
-    <img v-preview:scope-a src="./images/02.jpg" alt="image 02" />
-    <img v-preview:scope-b src="./images/03.jpg" alt="image 03" />
-    <img v-preview:scope-a src="./images/04.png" alt="image 04" />
-    <img v-preview src="./images/05.png" alt="image 05" />
-    <img v-preview src="./images/06.png" alt="image 06" />
-    <img v-preview src="./images/07.png" alt="image 07" />
-    <img v-preview src="./images/08.png" alt="image 08" />
-    <img v-preview:scope-b src="./images/09.jpg" alt="image 09" />
+    <img v-preview:scope-a src="path/to/images/01.jpg" alt="image 01" />
+    <img v-preview:scope-a src="path/to/images/02.jpg" alt="image 02" />
+    <img v-preview src="path/to/images/03.jpg" alt="image 03" />
   </div>
 </template>
 
