@@ -1,19 +1,39 @@
 <template>
   <div id="app">
-    <img v-preview:scope-a src="./images/01.jpg" alt="image 01">
-    <img v-preview:scope-a src="./images/02.jpg" alt="image 02">
-    <img v-preview:scope-b src="./images/03.jpg" alt="image 03">
-    <img v-preview:scope-a src="./images/04.png" alt="image 04">
-    <img v-preview src="./images/05.png" alt="image 05">
-    <img v-preview src="./images/06.png" alt="image 06">
-    <img v-preview src="./images/07.png" alt="image 07">
-    <img v-preview src="./images/08.png" alt="image 08">
-    <img v-preview:scope-b src="./images/09.jpg" alt="image 09">
+    <h2>普通</h2>
+
+    <div class="container normal">
+      <img v-preview:scope-c src="./images/01.jpg" alt="image 01" />
+      <img v-preview:scope-c src="./images/02.jpg" alt="image 02" />
+      <img v-preview:scope-d src="./images/03.jpg" alt="image 03" />
+      <img v-preview:scope-c src="./images/04.png" alt="image 04" />
+      <img v-preview src="./images/05.png" alt="image 05" />
+      <img v-preview src="./images/06.png" alt="image 06" />
+      <img v-preview src="./images/07.png" alt="image 07" />
+      <img v-preview src="./images/08.png" alt="image 08" />
+      <img v-preview:scope-d src="./images/09.jpg" alt="image 09" />
+    </div>
+
+    <h2>懒加载</h2>
+
+    <div class="container lazy" v-lazy-container="{ selector: 'img' }">
+      <img v-preview:scope-a :data-src="imageContext('./01.jpg')" alt="image 01" />
+      <img v-preview:scope-a :data-src="imageContext('./02.jpg')" alt="image 02" />
+      <img v-preview:scope-b :data-src="imageContext('./03.jpg')" alt="image 03" />
+      <img v-preview:scope-a :data-src="imageContext('./04.png')" alt="image 04" />
+      <img v-preview :data-src="imageContext('./05.png')" alt="image 05" />
+      <img v-preview :data-src="imageContext('./06.png')" alt="image 06" />
+      <img v-preview :data-src="imageContext('./07.png')" alt="image 07" />
+      <img v-preview :data-src="imageContext('./08.png')" alt="image 08" />
+      <img v-preview:scope-b :data-src="imageContext('./09.jpg')" alt="image 09" />
+    </div>
   </div>
 </template>
 
 <script>
 import createPreviewDirective from '../lib/directive'
+
+const imageContext = require.context('./images/', false, /\.(png|jpg)$/)
 
 export default {
   name: 'app',
@@ -25,7 +45,8 @@ export default {
       bgOpacity: 0.8, // 背景透明度
       allowPanToNext: false // 禁止图片放大时滑动到上/下一页
     })
-  }
+  },
+  methods: { imageContext }
 }
 </script>
 
@@ -36,11 +57,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
 
-  img {
-    height: 80px;
-    margin-right: 10px;
+.container {
+  &.normal {
+    img {
+      height: 60px;
+    }
+
+    img ~ img {
+      margin-left: 10px;
+    }
+  }
+
+  &.lazy img {
+    width: 100%;
   }
 }
 </style>
