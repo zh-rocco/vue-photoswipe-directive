@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import { setOriginImageSize } from './utils'
+
 const DEFAULT_OPTIONS = {}
 
 export default {
@@ -77,6 +79,7 @@ export default {
 
     $_addListeners () {
       this.$previewer.listen('close', this.$_destroy)
+      this.$previewer.listen('gettingData', (index, current) => void setOriginImageSize(current))
     },
 
     $_destroy () {

@@ -1,6 +1,6 @@
 {
   "name": "vue-photoswipe-directive",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An image previewer for vue, powered by PhotoSwipe.",
   "main": "dist/index.umd.min.js",
   "scripts": {

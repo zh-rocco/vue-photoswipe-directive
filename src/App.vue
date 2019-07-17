@@ -1,26 +1,20 @@
 <template>
   <div id="app">
-    <h2>普通</h2>
+    <h2>Normal</h2>
 
     <div class="container normal">
-      <img v-preview:scope-c src="./images/01.jpg" alt="image 01" />
-      <img v-preview:scope-c src="./images/02.jpg" alt="image 02" />
-      <img v-preview:scope-d src="./images/03.jpg" alt="image 03" />
-      <img v-preview:scope-c src="./images/04.png" alt="image 04" />
-      <img v-preview src="./images/05.png" alt="image 05" />
-      <img v-preview src="./images/06.png" alt="image 06" />
+      <img v-preview:scope-a src="./images/01.jpg" alt="image 01" />
+      <img v-preview:scope-a src="./images/05.png" alt="image 05" />
       <img v-preview src="./images/07.png" alt="image 07" />
-      <img v-preview src="./images/08.png" alt="image 08" />
-      <img v-preview:scope-d src="./images/09.jpg" alt="image 09" />
     </div>
 
-    <h2>懒加载</h2>
+    <h2>Lazy Load</h2>
 
     <div class="container lazy" v-lazy-container="{ selector: 'img' }">
-      <img v-preview:scope-a :data-src="imageContext('./01.jpg')" alt="image 01" />
-      <img v-preview:scope-a :data-src="imageContext('./02.jpg')" alt="image 02" />
-      <img v-preview:scope-b :data-src="imageContext('./03.jpg')" alt="image 03" />
-      <img v-preview:scope-a :data-src="imageContext('./04.png')" alt="image 04" />
+      <img v-preview:scope-b :data-src="imageContext('./01.jpg')" alt="image 01" />
+      <img v-preview:scope-b :data-src="imageContext('./02.jpg')" alt="image 02" />
+      <img v-preview :data-src="imageContext('./03.jpg')" alt="image 03" />
+      <img v-preview :data-src="imageContext('./04.png')" alt="image 04" />
       <img v-preview :data-src="imageContext('./05.png')" alt="image 05" />
       <img v-preview :data-src="imageContext('./06.png')" alt="image 06" />
       <img v-preview :data-src="imageContext('./07.png')" alt="image 07" />
@@ -59,14 +53,17 @@ export default {
   color: #2c3e50;
 }
 
+h2 {
+  margin-top: 50px;
+}
+
 .container {
   &.normal {
     img {
       height: 60px;
-    }
-
-    img ~ img {
+      margin-bottom: 10px;
       margin-left: 10px;
+      margin-right: 10px;
     }
   }
 
