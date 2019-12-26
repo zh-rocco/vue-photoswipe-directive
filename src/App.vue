@@ -58,6 +58,9 @@ h2 {
 }
 
 .container {
+  max-width: 600px;
+  margin: 0 auto;
+
   &.normal {
     img {
       height: 60px;
